@@ -18,8 +18,8 @@ public class ReportedController {
 
     @CrossOrigin(origins = "*")
     @PostMapping("testpost")
-    public Response testPostCall(@RequestBody String name){
-        logger.log(Level.ALL, name);
-        return new Response(name, false);
+    public Response testPostCall(@RequestBody Response name){
+        logger.log(Level.ALL, name.toString());
+        return new Response(name.getStatus(), false);
     }
 }
