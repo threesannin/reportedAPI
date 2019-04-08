@@ -20,6 +20,6 @@ public class ReportedController {
     @PostMapping("testpost")
     public Response testPostCall(@RequestBody Response name){
         logger.log(Level.ALL, name.toString());
-        return new Response(name.getStatus(), false);
+        return new Response("done with post", false);
     }
 }
