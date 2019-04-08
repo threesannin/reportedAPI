@@ -9,7 +9,7 @@ public class ReportedController {
 
     @CrossOrigin(origins = "*")
     @GetMapping("test")
-    public String testCall(){
-        return "test result";
+    public Response testCall(){
+        return new Response("test result", false);
     }
 }
