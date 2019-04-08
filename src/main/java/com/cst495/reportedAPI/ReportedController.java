@@ -1,8 +1,6 @@
 package com.cst495.reportedAPI;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ReportedController {
@@ -11,5 +9,12 @@ public class ReportedController {
     @GetMapping("test")
     public Response testCall(){
         return new Response("test result", false);
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping("testpost")
+    public Response testPostCall(@RequestBody String name){
+        System.out.println(name);
+        return new Response("Done with Post Call", false);
     }
 }
