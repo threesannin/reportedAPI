@@ -24,4 +24,12 @@ public class Response {
     public void setError(Boolean error) {
         this.error = error;
     }
+
+    @Override
+    public String toString() {
+        return "Response{" +
+                "status='" + status + '\'' +
+                ", error=" + error +
+                '}';
+    }
 }
