@@ -3,6 +3,7 @@ package com.cst495.reportedAPI;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,7 +29,7 @@ public class ReportedController {
     @RequestMapping(value = "/t", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     //, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public @ResponseBody Response testPostCall2(@RequestParam Response response){
+    public @ResponseBody Response testPostCall2(@RequestParam Map<String,Object> response){
         Response r = new Response("done", false);
         if(response == null) {
            r.setStatus("null error");
