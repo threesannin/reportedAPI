@@ -1,16 +1,16 @@
 package com.cst495.reportedAPI;
 
-import org.springframework.http.MediaType;
+import com.cst495.reportedAPI.entities.Form;
+import com.cst495.reportedAPI.entities.Response;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController
 public class ReportedController {
 
-    Logger logger = Logger.getLogger(ReportedController.class.getName());
+    private Logger logger = Logger.getLogger(ReportedController.class.getName());
 
     @CrossOrigin(origins = "*")
     @GetMapping("test")
@@ -21,28 +21,14 @@ public class ReportedController {
     @CrossOrigin(origins = "*")
     @PostMapping("testpost")
     public Response testPostCall(@RequestBody Response response){
-        logger.log(Level.WARNING, "*********************************************************8" + response.toString());
-
+        logger.log(Level.WARNING, "*******" + response.toString() + "*******" );
         return new Response(response.getStatus(), false);
     }
 
     @CrossOrigin(origins = "*")
-    @RequestMapping(value = "/t", method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    //, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public @ResponseBody Response testPostCall2(Map<String,Object> response){
-        Response r = new Response("done", false);
-        if(response == null) {
-           r.setStatus("null error");
-           r.setError(true);
-        }
-
-        response.forEach((key, value) -> {
-            System.out.println("Key : " + key + " Value : " + value);
-        });
-
-        logger.log(Level.WARNING, "*********************************************************8" + response);
-        System.out.println(response);
-        return r;
+    @PostMapping("submitPost")
+    public Response submitPost(@RequestBody Form form){
+        logger.log(Level.WARNING, "*******" + form.toString() + "*******" );
+        return new Response("got your form " + form.getCategory(), false);
     }
 }

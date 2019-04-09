@@ -1,4 +1,4 @@
-package com.cst495.reportedAPI;
+package com.cst495.reportedAPI.entities;
 
 public class Response {
     private String status;
