@@ -42,7 +42,8 @@ public class ReportedController {
     @CrossOrigin(origins = "*")
     @PostMapping("seleniumTest")
     public Response seleniumTest(){
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         String baseUrl = "https://csr.dot.ca.gov/";
