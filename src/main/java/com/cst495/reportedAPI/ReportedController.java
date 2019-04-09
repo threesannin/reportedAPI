@@ -30,6 +30,7 @@ public class ReportedController {
     //, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public Response testPostCall2(String response){
         if(response == null) {
+            logger.log(Level.WARNING, "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" + response.toString());
             return new Response("null error", true);
         }
         logger.log(Level.WARNING, "*********************************************************8" + response.toString());
