@@ -35,6 +35,11 @@ public class ReportedController {
            r.setStatus("null error");
            r.setError(true);
         }
+
+        response.forEach((key, value) -> {
+            System.out.println("Key : " + key + " Value : " + value);
+        });
+
         logger.log(Level.WARNING, "*********************************************************8" + response);
         System.out.println(response);
         return r;
