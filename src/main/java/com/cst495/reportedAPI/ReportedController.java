@@ -25,13 +25,16 @@ public class ReportedController {
         return new Response("done with post", false);
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/t", method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
-            produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    //, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody Response authenticate(Response paramMap){
         if(paramMap == null) {
             return new Response("null error", true);
         }
         return new Response("done with post", false);
     }
+       
+
 }
