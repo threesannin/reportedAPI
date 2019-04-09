@@ -29,7 +29,7 @@ public class ReportedController {
     @RequestMapping(value = "/t", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     //, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public @ResponseBody Response testPostCall2(@RequestBody Map<String,Object> response){
+    public @ResponseBody Response testPostCall2(Map<String,Object> response){
         Response r = new Response("done", false);
         if(response == null) {
            r.setStatus("null error");
