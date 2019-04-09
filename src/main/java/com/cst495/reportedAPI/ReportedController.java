@@ -33,56 +33,68 @@ public class ReportedController {
 
     @CrossOrigin(origins = "*")
     @PostMapping("submitPost")
-    public Response submitPost(@RequestBody Form form){
+    public Response submitPost(  @RequestBody Form form ){
         logger.log(Level.WARNING, "*******" + form.toString() + "*******" );
         //selenium
-        // declaration and instantiation of objects/variables
-        System.setProperty("webdriver.chrome.driver","G:\\chromedriver.exe");
+        return new Response("got your form " , false);
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping("seleniumTest")
+    public Response seleniumTest(){
+        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
-        String baseUrl = "http://localhost:4200/add";
+        String baseUrl = "https://csr.dot.ca.gov/";
         driver.get(baseUrl);
 
-        // Get the WebElement corresponding to the Email Address(TextField)
-//        WebElement email = driver.findElement(By.id("email"));
+//        WebElement className = driver.findElement(By.id("classname"));
+//        WebElement department = driver.findElement(By.id("department"));
+//        WebElement classRoom = driver.findElement(By.id("classroom"));
+//
+//        // Find the submit button
+//        WebElement submitButton = driver.findElement(By.id("addClass"));
+//
+//        // Using click method to submit form
+//        className.sendKeys("selenium Test 3");
+//        department.sendKeys("test");
+//        classRoom.sendKeys("999");
+//        submitButton.click();
+//
+////      Deleting values in the text box
+//        className.clear();
+//        department.clear();
+//        classRoom.clear();
+//        System.out.println("Text Field Cleared");
 
-        // Get the WebElement corresponding to the Password Field
-//        WebElement password = driver.findElement(By.name("passwd"));
+        WebElement category = driver.findElement(By.id("typeDesc"));
+        WebElement dirOfTravel = driver.findElement(By.id("dirTravel"));
+        WebElement crossStreet = driver.findElement(By.id("crossStreet"));
+        WebElement modeOfTrans = driver.findElement(By.id("transMode"));
+        WebElement date = driver.findElement(By.id("situationNoticedDate"));
+        WebElement time = driver.findElement(By.id("situationNoticedTime"));
+        WebElement description = driver.findElement(By.id("situationDesc"));
+        WebElement descriptionGeoLoc = driver.findElement(By.id("situationGeoLoc"));
+        WebElement email = driver.findElement(By.id("custEmail"));
+        WebElement name = driver.findElement(By.id("custName"));
+        WebElement phone = driver.findElement(By.id("custPhone"));
 
-        WebElement className = driver.findElement(By.id("classname"));
-        WebElement department = driver.findElement(By.id("department"));
-        WebElement classRoom = driver.findElement(By.id("classroom"));
+        category.sendKeys("GRA");
+        dirOfTravel.sendKeys("Northbound");
+        crossStreet.sendKeys("999");
+        modeOfTrans.sendKeys("Car");
+        date.sendKeys("04/08/2019");
+        time.sendKeys("1 am - 2 am");
+        description.sendKeys("selenium test");
+        descriptionGeoLoc.sendKeys("selenium test");
+        email.sendKeys("selenium test");
+        name.sendKeys("selenium test");
+        phone.sendKeys("selenium test");
 
-        className.sendKeys("selenium Test");
-        department.sendKeys("test");
-        classRoom.sendKeys("999");
-        System.out.println("Text Field Set");
 
-        // Deleting values in the text box
-        className.clear();
-        department.clear();
-        classRoom.clear();
-        System.out.println("Text Field Cleared");
 
-        // Find the submit button
-        WebElement submitButton = driver.findElement(By.id("addClass"));
-
-        // Using click method to submit form
-        className.sendKeys("selenium Test");
-        department.sendKeys("test");
-        classRoom.sendKeys("999");
-        submitButton.click();
-        System.out.println("Login Done with Click");
-
-        //using submit method to submit the form. Submit used on password field
-        driver.get(baseUrl);
-        driver.findElement(By.id("classname")).sendKeys("selenium test");
-        driver.findElement(By.name("department")).sendKeys("test");
-        driver.findElement(By.name("classroom")).sendKeys("999");
-        driver.findElement(By.id("addClass")).submit();
-        System.out.println("Login Done with Submit");
 
         //driver.close();
-        return new Response("got your form " + form.getCategory(), false);
+        return new Response("done with selenium test", false);
     }
 }
