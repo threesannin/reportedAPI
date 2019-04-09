@@ -28,8 +28,8 @@ public class ReportedController {
     @RequestMapping(value = "/t", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
             produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public @ResponseBody Response authenticate(Response paramMap){
-        if(paramMap == null) {
+    public @ResponseBody Response authenticate(MultiValueMap paramMap){
+        if(paramMap == null && paramMap.get("password") == null) {
             return new Response("null error", true);
         }
         return new Response("done with post", false);
