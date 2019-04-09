@@ -29,8 +29,11 @@ public class ReportedController {
     @RequestMapping(value = "/t", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     //, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public @ResponseBody Response authenticate(Response response){
-        return new Response(response.getStatus(), false);
+    public @ResponseBody Response authenticate(Response paramMap){
+        if(paramMap == null) {
+            return new Response("null error", true);
+        }
+        return new Response(paramMap.getStatus(), false);
     }
 
 
