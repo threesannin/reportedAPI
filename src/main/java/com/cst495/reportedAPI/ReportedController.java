@@ -30,11 +30,10 @@ public class ReportedController {
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     //, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody Response authenticate(Response paramMap){
-        if(paramMap == null) {
+        if(paramMap == null || paramMap.getStatus().isEmpty()) {
             return new Response("null error", true);
         }
         return new Response(paramMap.getStatus(), false);
     }
-
 
 }
