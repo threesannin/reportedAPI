@@ -33,6 +33,7 @@ public class ReportedController {
             return new Response("null error", true);
         }
         logger.log(Level.ALL, paramMap.toString());
+        System.out.println(paramMap);
         return new Response("done", false);
     }
 
