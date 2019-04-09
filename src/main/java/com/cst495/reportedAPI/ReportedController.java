@@ -28,7 +28,7 @@ public class ReportedController {
     @RequestMapping(value = "/t", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     //, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public Response testPostCall2(String response){
+    public @ResponseBody Response testPostCall2(@RequestParam String response){
         Response r = new Response("done", false);
         if(response == null) {
            r.setStatus("null error");
@@ -38,5 +38,4 @@ public class ReportedController {
         System.out.println(response);
         return r;
     }
-
 }
