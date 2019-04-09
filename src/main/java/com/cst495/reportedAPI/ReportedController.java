@@ -26,7 +26,7 @@ public class ReportedController {
 
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "/t", method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     //, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public Response testPostCall2(Response paramMap){
         if(paramMap == null) {
