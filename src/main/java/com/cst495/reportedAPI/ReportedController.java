@@ -29,13 +29,14 @@ public class ReportedController {
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     //, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public Response testPostCall2(String response){
+        Response r = new Response("done", false);
         if(response == null) {
-            logger.log(Level.WARNING, "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" + response.toString());
-            return new Response("null error", true);
+           r.setStatus("null error");
+           r.setError(true);
         }
-        logger.log(Level.WARNING, "*********************************************************8" + response.toString());
+        logger.log(Level.WARNING, "*********************************************************8" + response);
         System.out.println(response);
-        return new Response("done", false);
+        return r;
     }
 
 }
