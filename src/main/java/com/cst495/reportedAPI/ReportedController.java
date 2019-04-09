@@ -19,8 +19,8 @@ public class ReportedController {
 
     @CrossOrigin(origins = "*")
     @PostMapping("testpost")
-    public Response testPostCall(@RequestBody Response name){
-        logger.log(Level.ALL, name.toString());
+    public Response testPostCall(@RequestBody Response response){
+        logger.log(Level.WARNING, "*********************************************************8" + response.toString());
         return new Response("done with post", false);
     }
 
@@ -28,12 +28,12 @@ public class ReportedController {
     @RequestMapping(value = "/t", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     //, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public Response testPostCall2(Response paramMap){
-        if(paramMap == null) {
+    public Response testPostCall2(Response response){
+        if(response == null) {
             return new Response("null error", true);
         }
-        logger.log(Level.WARNING, "*********************************************************8" + paramMap.toString());
-        System.out.println(paramMap);
+        logger.log(Level.WARNING, "*********************************************************8" + response.toString());
+        System.out.println(response);
         return new Response("done", false);
     }
 
