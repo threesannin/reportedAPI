@@ -32,6 +32,7 @@ public class ReportedController {
         if(paramMap == null) {
             return new Response("null error", true);
         }
+        logger.log(Level.ALL, paramMap.toString());
         return new Response("done", false);
     }
 
