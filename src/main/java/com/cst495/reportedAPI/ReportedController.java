@@ -22,7 +22,8 @@ public class ReportedController {
     @PostMapping("testpost")
     public Response testPostCall(@RequestBody Response response){
         logger.log(Level.WARNING, "*********************************************************8" + response.toString());
-        return new Response("done with post", false);
+
+        return new Response(response.getStatus(), false);
     }
 
     @CrossOrigin(origins = "*")
