@@ -45,7 +45,8 @@ public class ReportedController {
     @CrossOrigin(origins = "*")
     @PostMapping("seleniumTest")
     public Response seleniumTest() throws MalformedURLException {
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         //System.setProperty("webdriver.chrome.driver", "/app/.apt/usr/bin/google-chrome");
         //WebDriver driver = new RemoteWebDriver(new java.net.URL("http://127.0.0.1:9515"), DesiredCapabilities.chrome());
         //driver.get("http://www.google.com");
