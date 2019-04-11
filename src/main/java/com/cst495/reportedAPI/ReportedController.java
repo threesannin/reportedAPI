@@ -8,8 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.MalformedURLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,9 +44,11 @@ public class ReportedController {
 
     @CrossOrigin(origins = "*")
     @PostMapping("seleniumTest")
-    public Response seleniumTest(){
+    public Response seleniumTest() throws MalformedURLException {
         //System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/app/.apt/usr/bin/google-chrome");
+        //WebDriver driver = new RemoteWebDriver(new java.net.URL("http://127.0.0.1:9515"), DesiredCapabilities.chrome());
+        //driver.get("http://www.google.com");
         WebDriver driver = new ChromeDriver();
 
         String baseUrl = "https://csr.dot.ca.gov/";
