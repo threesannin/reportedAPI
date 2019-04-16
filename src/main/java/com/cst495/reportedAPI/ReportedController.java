@@ -71,14 +71,18 @@ public class ReportedController {
 
     @CrossOrigin(origins = "*")
     @GetMapping("test")
-    public Response testCall(){
-        return new Response("test result", false);
+    public Form testCall() {
+        Form f = new Form("Unlisted Concern", "Northbound", "Car", "main n second", "04/13/2019",
+                "1 am - 2 am", "1.2.12", "12.321.12", "selenium Test server test",
+                "Name", true,"seleniumTest@gmail.com", "831 770-9620", "wrong neighborhood");
+        return f;
     }
 
     @CrossOrigin(origins = "*")
     @PostMapping("testpost")
     public Response testPostCall(@RequestBody Response input){
         logger.log(Level.WARNING, "*******" + input.toString() + "*******" );
+
         return new Response(input.getStatus(), false);
     }
 
@@ -126,7 +130,7 @@ public class ReportedController {
             phone.sendKeys(form.getPhone());
         }
 
-        driver.close();
+//        driver.close();
         return new Response("got your form " , false);
     }
 

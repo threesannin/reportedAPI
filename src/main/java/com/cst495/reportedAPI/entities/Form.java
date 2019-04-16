@@ -35,7 +35,7 @@ public class Form {
 
     public Form(String category, String dirOfTravel, String modeOfTrans, String crossStreet,
                 String date, String time, String latitude, String longitude, String description,
-                String username, boolean receiveResponse, String email, String phone, String descriptionGeoLoc) {
+                String name, boolean receiveResponse, String email, String phone, String descriptionGeoLoc) {
         this.category = category;
         this.dirOfTravel = dirOfTravel;
         this.modeOfTrans = modeOfTrans;
@@ -45,7 +45,7 @@ public class Form {
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;
-        this.name = username;
+        this.name = name;
         this.receiveResponse = receiveResponse;
         this.email = email;
         this.phone = phone;
