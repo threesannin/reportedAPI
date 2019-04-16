@@ -133,7 +133,9 @@ public class ReportedController {
     @CrossOrigin(origins = "*")
     @PostMapping("seleniumTest")
     public Response seleniumTest() throws MalformedURLException {
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe"); //Windows
+        //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver"); // MAC
+
         WebDriver driver = new ChromeDriver();
 
         String baseUrl = "https://csr.dot.ca.gov/";
