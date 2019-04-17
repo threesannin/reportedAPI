@@ -10,7 +10,10 @@ public class Form {
     private String latitude;
     private String longitude;
     private String description;
-    private String username;
+    private String name;
+    private String email;
+    private String phone;
+    private String descriptionGeoLoc;
     private boolean receiveResponse;
 
     public Form( ) {
@@ -23,13 +26,16 @@ public class Form {
         this.latitude = "";
         this.longitude = "";
         this.description = "";
-        this.username = "";
+        this.name = "";
         this.receiveResponse = false;
+        this.email = "";
+        this.phone = "";
+        this.descriptionGeoLoc = "";
     }
 
-    public Form(String category, String dirOfTravel, String modeOfTrans,
-                String crossStreet, String date, String time, String latitude,
-                String longitude, String description, String username, boolean receiveResponse) {
+    public Form(String category, String dirOfTravel, String modeOfTrans, String crossStreet,
+                String date, String time, String latitude, String longitude, String description,
+                String name, boolean receiveResponse, String email, String phone, String descriptionGeoLoc) {
         this.category = category;
         this.dirOfTravel = dirOfTravel;
         this.modeOfTrans = modeOfTrans;
@@ -39,8 +45,11 @@ public class Form {
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;
-        this.username = username;
+        this.name = name;
         this.receiveResponse = receiveResponse;
+        this.email = email;
+        this.phone = phone;
+        this.descriptionGeoLoc = descriptionGeoLoc;
     }
 
     public String getCategory() {
@@ -115,12 +124,12 @@ public class Form {
         this.description = description;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String username) {
+        this.name = username;
     }
 
     public boolean isReceiveResponse() {
@@ -129,6 +138,30 @@ public class Form {
 
     public void setReceiveResponse(boolean receiveResponse) {
         this.receiveResponse = receiveResponse;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getDescriptionGeoLoc() {
+        return descriptionGeoLoc;
+    }
+
+    public void setDescriptionGeoLoc(String descriptionGeoLoc) {
+        this.descriptionGeoLoc = descriptionGeoLoc;
     }
 
     @Override
@@ -143,7 +176,10 @@ public class Form {
                 ", latitude='" + latitude + '\'' +
                 ", longitude='" + longitude + '\'' +
                 ", description='" + description + '\'' +
-                ", username='" + username + '\'' +
+                ", username='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", descriptionGeoLoc='" + descriptionGeoLoc + '\'' +
                 ", receiveResponse=" + receiveResponse +
                 '}';
     }
