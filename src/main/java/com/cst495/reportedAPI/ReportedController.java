@@ -92,7 +92,8 @@ public class ReportedController {
         logger.log(Level.WARNING, "*******" + form.toString() + "*******" );
         //selenium
 
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe"); // windows
+        //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver"); // MAC
         WebDriver driver = new ChromeDriver();
 
         String baseUrl = "https://csr.dot.ca.gov/";
