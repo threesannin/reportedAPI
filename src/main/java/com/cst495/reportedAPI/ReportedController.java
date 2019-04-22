@@ -72,9 +72,9 @@ public class ReportedController {
     @CrossOrigin(origins = "*")
     @GetMapping("test")
     public Form testCall() {
-        Form f = new Form("Unlisted Concern", "Northbound", "Car", "main n second", "04/13/2019",
-                "1 am - 2 am", "1.2.12", "12.321.12", "selenium Test server test",
-                "Name", true,"seleniumTest@gmail.com", "831 770-9620", "wrong neighborhood");
+        Form f = new Form("Unlisted Concern", "Northbound", "Car", "main n second",
+                "04/13/2019", "1.2.12", "12.321.12", "selenium Test server test",
+                "Name","seleniumTest@gmail.com", "831 770-9620", "wrong neighborhood",true);
         return f;
     }
 

@@ -1,63 +1,61 @@
 package com.cst495.reportedAPI.entities;
 
 public class Form {
-    private String category;
+    private String issueCategory;
     private String dirOfTravel;
-    private String modeOfTrans;
-    private String crossStreet;
-    private String date;
-    private String time;
+    private String transMode;
+    private String nearestCrossStreet;
+    private String dateTime;
     private String latitude;
     private String longitude;
-    private String description;
+    private String descripText;
     private String name;
     private String email;
     private String phone;
     private String descriptionGeoLoc;
-    private boolean receiveResponse;
+    private boolean followUp;
 
     public Form( ) {
-        this.category = "";
+        this.issueCategory = "";
         this.dirOfTravel = "";
-        this.modeOfTrans = "";
-        this.crossStreet = "";
-        this.date = "";
-        this.time = "";
+        this.transMode = "";
+        this.nearestCrossStreet = "";
+        this.dateTime = "";
         this.latitude = "";
         this.longitude = "";
-        this.description = "";
+        this.descripText = "";
         this.name = "";
-        this.receiveResponse = false;
+        this.followUp = false;
         this.email = "";
         this.phone = "";
         this.descriptionGeoLoc = "";
     }
 
-    public Form(String category, String dirOfTravel, String modeOfTrans, String crossStreet,
-                String date, String time, String latitude, String longitude, String description,
-                String name, boolean receiveResponse, String email, String phone, String descriptionGeoLoc) {
-        this.category = category;
+    public Form(String issueCategory, String dirOfTravel, String transMode,
+                String nearestCrossStreet, String dateTime, String latitude,
+                String longitude, String descripText, String name, String email,
+                String phone, String descriptionGeoLoc, boolean followUp) {
+        this.issueCategory = issueCategory;
         this.dirOfTravel = dirOfTravel;
-        this.modeOfTrans = modeOfTrans;
-        this.crossStreet = crossStreet;
-        this.date = date;
-        this.time = time;
+        this.transMode = transMode;
+        this.nearestCrossStreet = nearestCrossStreet;
+        this.dateTime = dateTime;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.description = description;
+        this.descripText = descripText;
         this.name = name;
-        this.receiveResponse = receiveResponse;
         this.email = email;
         this.phone = phone;
         this.descriptionGeoLoc = descriptionGeoLoc;
+        this.followUp = followUp;
     }
 
     public String getCategory() {
-        return category;
+        return issueCategory;
     }
 
     public void setCategory(String category) {
-        this.category = category;
+        this.issueCategory = category;
     }
 
     public String getDirOfTravel() {
@@ -69,36 +67,36 @@ public class Form {
     }
 
     public String getModeOfTrans() {
-        return modeOfTrans;
+        return transMode;
     }
 
     public void setModeOfTrans(String modeOfTrans) {
-        this.modeOfTrans = modeOfTrans;
+        this.transMode = modeOfTrans;
     }
 
     public String getCrossStreet() {
-        return crossStreet;
+        return nearestCrossStreet;
     }
 
     public void setCrossStreet(String crossStreet) {
-        this.crossStreet = crossStreet;
+        this.nearestCrossStreet = crossStreet;
     }
 
     public String getDate() {
-        return date;
+        return dateTime;
     }
 
     public void setDate(String date) {
-        this.date = date;
+        this.dateTime = date;
     }
 
     public String getTime() {
-        return time;
+        return "000";
     }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
+//    public void setTime(String time) {
+//
+//    }
 
     public String getLatitude() {
         return latitude;
@@ -117,11 +115,11 @@ public class Form {
     }
 
     public String getDescription() {
-        return description;
+        return descripText;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.descripText = description;
     }
 
     public String getName() {
@@ -133,11 +131,11 @@ public class Form {
     }
 
     public boolean isReceiveResponse() {
-        return receiveResponse;
+        return followUp;
     }
 
     public void setReceiveResponse(boolean receiveResponse) {
-        this.receiveResponse = receiveResponse;
+        this.followUp = receiveResponse;
     }
 
     public String getEmail() {
@@ -167,20 +165,19 @@ public class Form {
     @Override
     public String toString() {
         return "Form{" +
-                "category='" + category + '\'' +
+                "issueCategory='" + issueCategory + '\'' +
                 ", dirOfTravel='" + dirOfTravel + '\'' +
-                ", modeOfTrans='" + modeOfTrans + '\'' +
-                ", crossStreet='" + crossStreet + '\'' +
-                ", date='" + date + '\'' +
-                ", time='" + time + '\'' +
+                ", transMode='" + transMode + '\'' +
+                ", nearestCrossStreet='" + nearestCrossStreet + '\'' +
+                ", dateTime='" + dateTime + '\'' +
                 ", latitude='" + latitude + '\'' +
                 ", longitude='" + longitude + '\'' +
-                ", description='" + description + '\'' +
-                ", username='" + name + '\'' +
+                ", descripText='" + descripText + '\'' +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", descriptionGeoLoc='" + descriptionGeoLoc + '\'' +
-                ", receiveResponse=" + receiveResponse +
+                ", followUp=" + followUp +
                 '}';
     }
 }
