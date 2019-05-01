@@ -70,15 +70,6 @@ public class ReportedController {
     };
 
     @CrossOrigin(origins = "*")
-    @GetMapping("test")
-    public Form testCall() {
-        Form f = new Form("Unlisted Concern", "Northbound", "Car", "main n second", "04/13/2019",
-                "1 am - 2 am", "1.2.12", "12.321.12", "selenium Test server test",
-                "Name", true,"seleniumTest@gmail.com", "831 770-9620", "wrong neighborhood");
-        return f;
-    }
-
-    @CrossOrigin(origins = "*")
     @PostMapping("testpost")
     public Response testPostCall(@RequestBody Response input){
         logger.log(Level.WARNING, "*******" + input.toString() + "*******" );
@@ -92,8 +83,8 @@ public class ReportedController {
         logger.log(Level.WARNING, "*******" + form.toString() + "*******" );
         //selenium
 
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe"); // windows
-        //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver"); // MAC
+        //System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe"); // windows
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver"); // MAC
         WebDriver driver = new ChromeDriver();
 
         String baseUrl = "https://csr.dot.ca.gov/";
@@ -107,26 +98,56 @@ public class ReportedController {
         WebElement date = driver.findElement(By.id("situationNoticedDate"));
         WebElement time = driver.findElement(By.id("situationNoticedTime"));
         WebElement description = driver.findElement(By.id("situationDesc"));
-        WebElement descriptionGeoLoc = driver.findElement(By.id("situationGeoLoc"));
+//        WebElement descriptionGeoLoc = driver.findElement(By.id("situationGeoLoc"));
         WebElement email = driver.findElement(By.id("custEmail"));
         WebElement name = driver.findElement(By.id("custName"));
         WebElement phone = driver.findElement(By.id("custPhone"));
 
         //category.sendKeys("GRA");
-        if(mCategory.containsKey(form.getCategory())){
-            category.sendKeys(mCategory.get(form.getCategory()));
+        if(mCategory.containsKey(form.getIssueCategory())){
+            category.sendKeys(mCategory.get(form.getIssueCategory()));
         } else{
             return new Response("error occurred while mapping category " , false);
         }
         dirOfTravel.sendKeys(form.getDirOfTravel());
-        crossStreet.sendKeys(form.getCrossStreet());
-        modeOfTrans.sendKeys(form.getModeOfTrans());
-        date.sendKeys(form.getDate());
-        time.sendKeys(form.getTime());
-        description.sendKeys(form.getDescription());
-        descriptionGeoLoc.sendKeys(form.getDescriptionGeoLoc());
+        crossStreet.sendKeys(form.getNearestCrossStreet());
+        modeOfTrans.sendKeys(form.getTransMode());
+        String dateTime = form.getDateTime();
+        System.out.println(dateTime);
+        String dateS = dateTime.substring(0,dateTime.indexOf(" at"));
+        System.out.println(dateS);
+        String timeS = dateTime.substring(dateTime.indexOf("at ")+3, dateTime.indexOf(':'));
+        System.out.println(timeS);
+        String amPM = dateTime.substring(dateTime.length()-2, dateTime.length());
+        System.out.println(amPM);
+        String finalTime = "";
+        if(timeS.equals("12")){
+            if(amPM.equals("AM")){
+                finalTime+="midnight - 1 am";
+            }else{
+                finalTime += "12 noon - 1 pm";
+            }
+        } else{
+            finalTime += timeS + " " + amPM + " - ";
+            int t = 1 + Integer.parseInt(timeS);
+            if(t == 12){
+                if(amPM.equals("AM"))
+                    finalTime += "12 noon";
+                else
+                    finalTime += "midnight";
+            } else {
+                finalTime += t + " " + amPM;
+            }
+        }
+        System.out.println(finalTime);
+
+        date.sendKeys(dateS);
+        time.sendKeys(finalTime);
+
+        description.sendKeys(form.getDescripText());
+//        descriptionGeoLoc.sendKeys(form.getDescriptionGeoLoc());
         email.sendKeys(form.getEmail());
-        if(form.isReceiveResponse()) {
+        if(form.isFollowUp()) {
             name.sendKeys(form.getName());
             phone.sendKeys(form.getPhone());
         }
@@ -139,8 +160,8 @@ public class ReportedController {
     @PostMapping("seleniumTest")
     public Response seleniumTest() throws MalformedURLException {
 
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe"); //Windows
-        //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver"); // MAC
+        //System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe"); //Windows
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver"); // MAC
 
 
         WebDriver driver = new ChromeDriver();
