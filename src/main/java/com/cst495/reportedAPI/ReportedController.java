@@ -4,6 +4,7 @@ import com.cst495.reportedAPI.entities.Form;
 import com.cst495.reportedAPI.entities.Response;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -180,8 +181,11 @@ public class ReportedController {
         WebElement email = driver.findElement(By.id("custEmail"));
         WebElement name = driver.findElement(By.id("custName"));
         WebElement phone = driver.findElement(By.id("custPhone"));
+        WebElement mapSearchInput = driver.findElement(By.id("pac-input"));
+        WebElement submitFormButton = driver.findElement(By.id("submitBttn"));
 
         category.sendKeys("GRA");
+        mapSearchInput.sendKeys("100 Twelfth St, Marina, CA 93933, USA" + Keys.ENTER);
         dirOfTravel.sendKeys("Northbound");
         crossStreet.sendKeys("999");
         modeOfTrans.sendKeys("Car");
@@ -189,9 +193,10 @@ public class ReportedController {
         time.sendKeys("1 am - 2 am");
         description.sendKeys("selenium test");
         descriptionGeoLoc.sendKeys("selenium test");
-        email.sendKeys("selenium test");
+        email.sendKeys("v1030615@nwytg.net");
         name.sendKeys("selenium test");
         phone.sendKeys("selenium test");
+        submitFormButton.click();
 
         driver.close();
         return new Response("done with selenium test", false);
