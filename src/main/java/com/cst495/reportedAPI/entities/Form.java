@@ -1,6 +1,7 @@
 package com.cst495.reportedAPI.entities;
 
 public class Form {
+
     private String issueCategory;
     private String dirOfTravel;
     private String transMode;
@@ -15,7 +16,7 @@ public class Form {
     private String descriptionGeoLoc;
     private boolean followUp;
 
-    public Form( ) {
+    public Form() {
         this.issueCategory = "";
         this.dirOfTravel = "";
         this.transMode = "";
@@ -50,12 +51,12 @@ public class Form {
         this.followUp = followUp;
     }
 
-    public String getCategory() {
+    public String getIssueCategory() {
         return issueCategory;
     }
 
-    public void setCategory(String category) {
-        this.issueCategory = category;
+    public void setIssueCategory(String issueCategory) {
+        this.issueCategory = issueCategory;
     }
 
     public String getDirOfTravel() {
@@ -66,37 +67,29 @@ public class Form {
         this.dirOfTravel = dirOfTravel;
     }
 
-    public String getModeOfTrans() {
+    public String getTransMode() {
         return transMode;
     }
 
-    public void setModeOfTrans(String modeOfTrans) {
-        this.transMode = modeOfTrans;
+    public void setTransMode(String transMode) {
+        this.transMode = transMode;
     }
 
-    public String getCrossStreet() {
+    public String getNearestCrossStreet() {
         return nearestCrossStreet;
     }
 
-    public void setCrossStreet(String crossStreet) {
-        this.nearestCrossStreet = crossStreet;
+    public void setNearestCrossStreet(String nearestCrossStreet) {
+        this.nearestCrossStreet = nearestCrossStreet;
     }
 
-    public String getDate() {
+    public String getDateTime() {
         return dateTime;
     }
 
-    public void setDate(String date) {
-        this.dateTime = date;
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
-
-    public String getTime() {
-        return "000";
-    }
-
-//    public void setTime(String time) {
-//
-//    }
 
     public String getLatitude() {
         return latitude;
@@ -114,28 +107,20 @@ public class Form {
         this.longitude = longitude;
     }
 
-    public String getDescription() {
+    public String getDescripText() {
         return descripText;
     }
 
-    public void setDescription(String description) {
-        this.descripText = description;
+    public void setDescripText(String descripText) {
+        this.descripText = descripText;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String username) {
-        this.name = username;
-    }
-
-    public boolean isReceiveResponse() {
-        return followUp;
-    }
-
-    public void setReceiveResponse(boolean receiveResponse) {
-        this.followUp = receiveResponse;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -160,6 +145,14 @@ public class Form {
 
     public void setDescriptionGeoLoc(String descriptionGeoLoc) {
         this.descriptionGeoLoc = descriptionGeoLoc;
+    }
+
+    public boolean isFollowUp() {
+        return followUp;
+    }
+
+    public void setFollowUp(boolean followUp) {
+        this.followUp = followUp;
     }
 
     @Override
