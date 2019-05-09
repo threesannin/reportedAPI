@@ -13,14 +13,28 @@ public class Form {
     private String name;
     private String email;
     private String phone;
-//    private String descriptionGeoLoc;
+    private String descriptionGeoLoc;
     private boolean followUp;
 
     public Form() {
+        this.issueCategory = "";
+        this.dirOfTravel = "";
+        this.transMode = "";
+        this.nearestCrossStreet = "";
+        this.dateTime = "";
+        this.latitude = "";
+        this.longitude = "";
+        this.descripText = "";
+        this.name = "";
+        this.followUp = false;
+        this.email = "";
+        this.phone = "";
+        this.descriptionGeoLoc = "";
     }
 
-    public Form(String issueCategory, String dirOfTravel, String transMode, String nearestCrossStreet,
-                String dateTime, String latitude, String longitude, String descripText, String name, String email,
+    public Form(String issueCategory, String dirOfTravel, String transMode,
+                String nearestCrossStreet, String dateTime, String latitude,
+                String longitude, String descripText, String name, String email,
                 String phone, String descriptionGeoLoc, boolean followUp) {
         this.issueCategory = issueCategory;
         this.dirOfTravel = dirOfTravel;
@@ -33,7 +47,7 @@ public class Form {
         this.name = name;
         this.email = email;
         this.phone = phone;
-//        this.descriptionGeoLoc = descriptionGeoLoc;
+        this.descriptionGeoLoc = descriptionGeoLoc;
         this.followUp = followUp;
     }
 
@@ -124,14 +138,14 @@ public class Form {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-//
-//    public String getDescriptionGeoLoc() {
-//        return descriptionGeoLoc;
-//    }
-//
-//    public void setDescriptionGeoLoc(String descriptionGeoLoc) {
-//        this.descriptionGeoLoc = descriptionGeoLoc;
-//    }
+
+    public String getDescriptionGeoLoc() {
+        return descriptionGeoLoc;
+    }
+
+    public void setDescriptionGeoLoc(String descriptionGeoLoc) {
+        this.descriptionGeoLoc = descriptionGeoLoc;
+    }
 
     public boolean isFollowUp() {
         return followUp;
@@ -155,7 +169,7 @@ public class Form {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-//                ", descriptionGeoLoc='" + descriptionGeoLoc + '\'' +
+                ", descriptionGeoLoc='" + descriptionGeoLoc + '\'' +
                 ", followUp=" + followUp +
                 '}';
     }
